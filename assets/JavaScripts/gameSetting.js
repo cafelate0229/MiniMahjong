@@ -26,7 +26,7 @@ const handNumBtn = document.querySelectorAll(".handNumBtn");
 const handKindsBtn = document.querySelectorAll(".handKindsBtn");
 
 let handNum = null;
-let handKinds = null;
+let handKinds = [];
 
 handNumBtn.forEach(button => {
     button.addEventListener("click", () => {
@@ -42,14 +42,16 @@ handNumBtn.forEach(button => {
 
 handKindsBtn.forEach(button => {
     button.addEventListener("click", () => {
-        handKindsBtn.forEach(handKindsBtn => {
-            handKindsBtn.removeAttribute("checked"); // 選択済みを外す
-        });
-        button.setAttribute("checked", "");//選択済みにする
-        sessionStorage.setItem("handKinds", button.value); // 牌種を保存
-        handKinds = sessionStorage.getItem("handKinds");
+        if (handKinds.includes(button.value)) {
+            handKinds = handKinds.filter(kind => kind !== button.value);
+            button.removeAttribute("checked");
+        } else {
+            handKinds.push(button.value);
+            button.setAttribute("checked", "");
+        }
+        sessionStorage.setItem("handKinds", JSON.stringify(handKinds));
         console.log("牌種:", handKinds);
-  });
+    });
 });
 
 
@@ -60,7 +62,7 @@ startBtn.addEventListener("click", () => {
         alert("手牌数を選択してください。"); //! アラームが表示されるようにする
         return;
     };
-    if (handKinds === null) {
+    if (handKinds.length === 0) {
         alert("牌種を選択してください。");
         return;
     };
@@ -74,8 +76,8 @@ startBtn.addEventListener("click", () => {
 
     console.log("ゲーム開始: 手牌数 :", handNum, "牌種:", handKinds, "オフライン:", isOffline);
     if (isOffline) {
-        window.location.href = "offlineGameScreen.html";
+//        window.location.href = "offlineGameScreen.html";
     } else {
-        window.location.href = "onlineGameScreen.html";
+//        window.location.href = "onlineGameScreen.html";
     };
 });
