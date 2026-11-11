@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ミニ麻雀｜信州大学競技麻雀部咲</title>
+ 
+     <!-- CSS読み込み -->
+
+    <!--JavaScript読み込み-->
+    <script src="../JavaScripts/gameSetting.js" defer></script>
+</head>
+
+<body>
+    
+    <!--オフライン設定画面-->
+    <section id = "offlineSettingScreen">
+
+        <div class = "menuButton">
+            <button class = "ruleBtn">遊び方</button>
+            <button class = "settingBtn">設定</button>
+        </div>
+
+        <div id = offlineSettting>
+            <!--文字を変更できるようにする-->
+            <h1>オフライン</h1>
+            <p>信州大学競技麻雀部咲</p>
+
+            <div id = "gameSettingBtn">
+                <p>手牌数</p>
+                    <button class = "handNumBtn" value = "4">4枚</button>
+                    <button class = "handNumBtn" value = "7">7枚</button>
+                    <button class = "handNumBtn" value = "10">10枚</button>
+
+                <p>牌種</p>
+                    <button class = "handKindsBtn" value = "m">萬子</button>
+                    <button class = "handKindsBtn" value = "p">筒子</button>
+                    <button class = "handKindsBtn" value = "s">索子</button>
+                    <button class = "handKindsBtn" value = "z">字牌</button>
+            </div>
+
+        <div id = "onlineGameSetting">
+
+        </div>
+
+            <button id = "startBtn">ゲーム開始</button>
+            <button class = "backBtn">戻る</button>
+
+        </div>
+    </section>
+</body>
+</html>
+    
