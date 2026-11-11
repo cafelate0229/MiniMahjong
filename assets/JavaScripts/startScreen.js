@@ -1,3 +1,7 @@
+// ゲーム設定を初期化する
+sessionStorage.removeItem("isOffline");
+
+
 // オフラインボタンを押されたら、オフライン設定画面に移行する
 const offlineBtn = document.getElementById("offlineBtn");
 offlineBtn.addEventListener("click", () => {

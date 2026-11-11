@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>ミニ麻雀｜信州大学競技麻雀部咲</title>
+    <title>ミニ麻雀｜信州大学競技麻雀部咲｜ゲーム設定</title>
  
      <!-- CSS読み込み -->
 
@@ -40,8 +40,10 @@
                     <button class = "handKindsBtn" value = "z">字牌</button>
             </div>
 
+        <!--オンライン設定画面(オンラインの時だけ表示する)-->
         <div id = "onlineGameSetting">
-
+            <p>ルームID</p>
+            <input type="text" id="roomIdInput" inputmode="numeric" pattern="[0-9]*" maxlength="8" placeholder="ルームIDを入力してください">
         </div>
 
             <button id = "startBtn">ゲーム開始</button>

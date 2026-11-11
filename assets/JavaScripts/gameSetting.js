@@ -1,5 +1,25 @@
+// 変数の定義
+const onlineGameSetting = document.getElementById("onlineGameSetting");
+const roomIdInput = document.getElementById("roomIdInput");
+
+// ゲーム設定を初期化する
+sessionStorage.removeItem("handNum");
+sessionStorage.removeItem("handKinds");
+sessionStorage.removeItem("roomId");
+onlineGameSetting.style.display = "none"; // オンライン用設定を非表示にする
+
 // 他のファイルからデータを受け取る
 const isOffline = sessionStorage.getItem("isOffline") === "true"; // オフラインモードかどうかを判定する
+
+// もしオンラインモードなら、オンライン用設定を表示する
+if (!isOffline) {
+    onlineGameSetting.style.display = "block"; // オンライン用設定を表示する
+}
+
+roomIdInput.addEventListener("input", () => {
+    roomIdInput.value = roomIdInput.value.replace(/[^0-9]/g, "");
+});
+
 
 //オフラインの設定ボタンが押されたら、情報を取得する
 const handNumBtn = document.querySelectorAll(".handNumBtn");
@@ -44,12 +64,18 @@ startBtn.addEventListener("click", () => {
         alert("牌種を選択してください。");
         return;
     };
-    if (handNum !== null && handKinds !== null) {
-       console.log("ゲーム開始: 手牌数 :", handNum, "牌種:", handKinds, "オフライン:", isOffline);
-        if (isOffline) {
-            window.location.href = "offlineGameScreen.html";
-        } else {
-            window.location.href = "onlineGameScreen.html";
-        }
+    if (!isOffline && (roomIdInput.value.trim() === "" || roomIdInput.value.length < 4 || roomIdInput.value.length > 8)) {
+        alert("ルームIDを数字4〜8桁で入力してください。");
+        return;
+    };
+    if (!isOffline) {
+        sessionStorage.setItem("roomId", roomIdInput.value);
+    }
+
+    console.log("ゲーム開始: 手牌数 :", handNum, "牌種:", handKinds, "オフライン:", isOffline);
+    if (isOffline) {
+        window.location.href = "offlineGameScreen.html";
+    } else {
+        window.location.href = "onlineGameScreen.html";
     };
 });
