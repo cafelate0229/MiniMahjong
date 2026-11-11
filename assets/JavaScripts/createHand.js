@@ -47,9 +47,9 @@ const jihai = [
     {name:"chun", img:"../../resources/image/heiga-m/ji7-chun.gif"}
 ];
 const aka = [
-    {name:"R-pin5", img:""},
-    {name:"R-man5", img:""},
-    {name:"R-sou5", img:""}
+    {name:"R-pin5", img:"../../resources/image/heiga-m/pin-aka5.gif"},
+    {name:"R-man5", img:"../../resources/image/heiga-m/man-aka5.gif"},
+    {name:"R-sou5", img:"../../resources/image/heiga-m/sou-aka5.gif"}
 ]
 
 // 他のファイルから変数を受け取る
